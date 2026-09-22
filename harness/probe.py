@@ -164,7 +164,8 @@ def main():
         sys.exit("probe: could not reach %s or it served no models" % args.endpoint)
 
     names = args.sets or sorted(
-        f[:-5] for f in os.listdir(PROMPTS) if f.endswith(".json"))
+        f[:-5] for f in os.listdir(PROMPTS)
+        if f.endswith(".json") and not f.endswith(".local.json"))
 
     out = {"endpoint": args.endpoint, "model": model, "runs": args.runs,
            "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "sets": []}
@@ -172,7 +173,11 @@ def main():
         path = os.path.join(PROMPTS, n + ".json")
         if not os.path.exists(path):
             sys.exit("probe: no prompt set %r in %s" % (n, PROMPTS))
-        out["sets"].append(run_set(args.endpoint, model, n, json.load(open(path)), args.runs))
+        spec = json.load(open(path))
+        if not all("a" in c for c in spec.get("cases", [])):
+            print("probe: %r has cases without an 'a' answer key, skipping (is it a refusal set?)" % n, file=sys.stderr)
+            continue
+        out["sets"].append(run_set(args.endpoint, model, n, spec, args.runs))
     out["coherence"] = coherence(args.endpoint, model)
     out["structured"] = structured(args.endpoint, model)
 
