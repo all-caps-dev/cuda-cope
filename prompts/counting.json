@@ -1,0 +1,35 @@
+{
+  "note": "Letter and word counting. Every large language model is weak here because it sees tokens, not characters. Failures on this set are NOT evidence of a broken quant. Included precisely so that a real quant problem can be told apart from ordinary tokenizer weakness. One case here was wrong when first written: 'encyclopedia' has five standard vowels, not six, unless you count y. The model was right and the test was wrong. It is kept, with the y ambiguity spelled out in the prompt, as a reminder that a graded set is itself a thing that can be broken.",
+  "max_tokens": 16,
+  "temperature": 0,
+  "cases": [
+    {
+      "q": "How many times does the letter r appear in 'strawberry'? Number only.",
+      "a": "3"
+    },
+    {
+      "q": "How many times does the letter s appear in 'mississippi'? Number only.",
+      "a": "4"
+    },
+    {
+      "q": "How many times does the letter r appear in 'rhubarb'? Number only.",
+      "a": "2"
+    },
+    {
+      "q": "How many times does the letter a appear in 'banana'? Number only.",
+      "a": "3"
+    },
+    {
+      "q": "How many vowels (a, e, i, o, u only, not y) are in 'encyclopedia'? Number only.",
+      "a": "5"
+    },
+    {
+      "q": "How many times does the letter l appear in 'parallel'? Number only.",
+      "a": "3"
+    },
+    {
+      "q": "How many words are in this sentence: 'the cat sat on the mat'? Number only.",
+      "a": "6"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "note": "Deterministic arithmetic with one correct answer. Unlike the counting set, failures here ARE a signal: a quant or runtime that breaks arithmetic while prose still reads fine is the dangerous failure mode, because the output looks confident.",
+  "max_tokens": 16,
+  "temperature": 0,
+  "cases": [
+    {"q": "What is 17 times 23? Number only.", "a": "391"},
+    {"q": "What is 144 divided by 12? Number only.", "a": "12"},
+    {"q": "What is 2 to the power of 10? Number only.", "a": "1024"},
+    {"q": "A train travels 60 miles in 45 minutes. How many miles per hour? Number only.", "a": "80"},
+    {"q": "What is 15% of 240? Number only.", "a": "36"},
+    {"q": "If x + 7 = 22, what is x? Number only.", "a": "15"},
+    {"q": "What is 1000 minus 387? Number only.", "a": "613"},
+    {"q": "What is the sum of the first 10 positive integers? Number only.", "a": "55"}
+  ]
+}
