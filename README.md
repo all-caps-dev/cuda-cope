@@ -49,5 +49,6 @@ failure was somewhere else entirely.
 
 ## License
 
-Apache-2.0, see [LICENSE](LICENSE). Use the harness and the numbers; cite the
-bench file you took them from.
+Code: Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE). Write-ups and
+results: CC BY 4.0, see [CONTENT-LICENSE.md](CONTENT-LICENSE.md). Use them
+freely; credit **cuda-cope** and link the bench file you took the number from.
