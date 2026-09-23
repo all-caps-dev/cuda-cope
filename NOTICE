@@ -6,5 +6,5 @@ This product includes software and benchmark results from cuda-cope,
 16 GB local-model benchmarks published with the failures included,
 by ALL CAPS RESEARCH & DESIGN LLC.
 
-CUDA Cope is based on club-3090 by noonghunna
+cuda-cope is based on club-3090 by noonghunna
 (https://github.com/noonghunna/club-3090), licensed under the Apache License 2.0.

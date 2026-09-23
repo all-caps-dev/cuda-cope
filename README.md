@@ -3,7 +3,7 @@
 Benchmarks for running large local models on one 16 GB consumer NVIDIA card,
 published with the failures included.
 
-CUDA Cope is based on [club-3090](https://github.com/noonghunna/club-3090) by
+cuda-cope is based on [club-3090](https://github.com/noonghunna/club-3090) by
 noonghunna, the community recipes for serving LLMs on 24 GB and multi-card RTX
 setups. It takes the same approach down to the smaller card.
 
