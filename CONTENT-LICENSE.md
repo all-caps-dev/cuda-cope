@@ -13,7 +13,7 @@ you give credit, link to the source, and say if you changed anything.
 ## Cite as
 
 > ALL CAPS RESEARCH & DESIGN LLC, *cuda-cope*, `benches/<file>.md`,
-> https://github.com/all-caps-dev/cuda-cope
+> https://github.com/cudacope/cuda-cope
 
 A link to the specific bench file is the most useful form of credit: it carries
 the config that produced the number.
