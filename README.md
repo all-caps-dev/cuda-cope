@@ -3,11 +3,14 @@
 Benchmarks for running large local models on one 16 GB consumer NVIDIA card,
 published with the failures included.
 
+CUDA Cope is based on [club-3090](https://github.com/noonghunna/club-3090) by
+noonghunna, the community recipes for serving LLMs on 24 GB and multi-card RTX
+setups. It takes the same approach down to the smaller card.
+
 The scope is narrow on purpose: one **16 GB card**. Numbers from a bigger card
 do not transfer down, so this repo measures what 16 GB actually does, names the
 quant and the driver, and publishes the runs that broke as well as the ones that
-worked. For 24 GB and multi-card serving recipes, see
-[club-3090](https://github.com/noonghunna/club-3090).
+worked. For 24 GB and multi-card serving recipes, use club-3090 itself.
 
 ## Why this exists
 
