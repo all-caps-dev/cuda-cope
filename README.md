@@ -3,10 +3,11 @@
 Benchmarks for running large local models on one 16 GB consumer NVIDIA card,
 published with the failures included.
 
-The premise is narrow on purpose. A 24 GB card is a different class, and
-pretending otherwise produces benchmark numbers nobody can reproduce. This repo
-measures what a **16 GB card** actually does, names the quant and the driver, and
-publishes the runs that broke as well as the ones that worked.
+The scope is narrow on purpose: one **16 GB card**. Numbers from a bigger card
+do not transfer down, so this repo measures what 16 GB actually does, names the
+quant and the driver, and publishes the runs that broke as well as the ones that
+worked. For 24 GB and multi-card serving recipes, see
+[club-3090](https://github.com/noonghunna/club-3090).
 
 ## Why this exists
 
@@ -45,3 +46,8 @@ Early. The first real result is in
 [`benches/2026-09-22-nail-iq3.md`](benches/2026-09-22-nail-iq3.md), and it is a
 negative one: the quant everyone would suspect turned out to be fine, and the
 failure was somewhere else entirely.
+
+## License
+
+Apache-2.0, see [LICENSE](LICENSE). Use the harness and the numbers; cite the
+bench file you took them from.
