@@ -42,10 +42,30 @@ change.
 
 ## Status
 
-Early. The first real result is in
-[`benches/2026-09-22-nail-iq3.md`](benches/2026-09-22-nail-iq3.md), and it is a
-negative one: the quant everyone would suspect turned out to be fine, and the
-failure was somewhere else entirely.
+Four results so far, all measured 2026-09-22 on the reference box in [HARDWARE.md](HARDWARE.md):
+
+| Bench | Question | Answer |
+|---|---|---|
+| [nail-iq3](benches/2026-09-22-nail-iq3.md) | Is the IQ3_S quant damaged? | No. 8/8 arithmetic; the failure was somewhere else. |
+| [occult-nail-vs-nail](benches/2026-09-22-occult-nail-vs-nail.md) | Does the abliterated build answer own-hardware questions the stock one refuses? | Yes: 6/6 answered vs 4/6. |
+| [large-quant-large-context](benches/2026-09-22-large-quant-large-context.md) | Does a Q4 quant fit at large context on 16 GB? | Yes: Q4_K_S at 262k context, about 11 GB VRAM. |
+| [higher-quant-regressed](benches/2026-09-22-higher-quant-regressed.md) | Is the higher quant better? | No. Q4_K_XL lost a counting case and refused one request that Q3_K_XL passed, 3 runs out of 3. |
+
+### Earlier results (July 2026)
+
+Before this repo, the same card was benched with
+[localai-16gb-bench](https://github.com/ryanilano/localai-16gb-bench) (MIT), a throughput and fit
+sweep for Qwen3.6 on llama.cpp. Its headline numbers, from the run notes in that repo:
+
+- **35B-A3B MoE, UD-Q3_K_M:** fastest config in the sweep, about 58 tok/s generation at low depth,
+  and it stayed up to about 255k context at about 6 GB VRAM with idle experts in system RAM.
+- **27B dense, NEO-CODE IQ3_M:** about 40 tok/s, up to 80k context at about 15.4 GB VRAM.
+- **27B dense, NEO-CODE IQ4_XS:** the context wall is the KV cache, not the weights. q8_0 KV caps
+  near 16k; q4_0 KV reaches about 49k at about 15.8 GB, with no quality loss found on short prompts.
+- **CUDA 13.2** makes low-bit Qwen3.6 quants emit gibberish; pin 13.1 or 13.3.
+
+Those are speed and fit numbers. This repo adds the quality pass that says whether a fast quant is
+still thinking.
 
 ## License
 
